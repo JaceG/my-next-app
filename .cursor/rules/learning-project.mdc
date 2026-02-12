@@ -1,0 +1,67 @@
+---
+description: Learning project rules for BetTrackr Lite - a structured JS/React/Next.js learning project
+globs:
+alwaysApply: true
+---
+
+# BetTrackr Lite -- Learning Project Rules
+
+This is a **learning project**. The user is building a simplified sports betting tracker to learn JavaScript, React, and Next.js. The full plan is in `GAMEPLAN.md` at the project root.
+
+## How to Interact
+
+- **The user is the architect, you are the contractor.** Ask them where components should go and how data should flow before building. Don't make structural decisions for them.
+- **One milestone at a time.** Check the progress tracker at the bottom of `GAMEPLAN.md` to see what milestone is current. Don't skip ahead.
+- **After writing code, quiz them.** Ask 2-3 questions about the code you just wrote to reinforce learning.
+- **Explain WHY, not just WHAT.** Don't just say "add this line." Explain what it does and why it's needed.
+
+## What to Explain in Detail
+
+The user's JavaScript fundamentals are at 3/10. These concepts need clear, plain-English explanations when they first appear:
+
+- **Destructuring:** `const [a, b] = array` and `const { name } = object` -- explain that this "unpacks" values
+- **Arrow functions:** `(x) => x + 1` -- explain the shorthand and when/why React uses them
+- **Callbacks:** Passing a function as an argument to another function
+- **`.map()` and `.filter()`:** Transforming and filtering arrays
+- **Props:** How parent components pass data to children
+- **`useState`:** The full `const [value, setValue] = useState(initial)` pattern
+- **`useEffect`:** What triggers it, what the dependency array does, cleanup
+- **`"use client"`:** Why Next.js needs this, what the default (server component) means
+- **File-based routing:** How `src/app/about/page.tsx` becomes the `/about` URL
+- **`{children}`:** How layouts and wrapper components receive nested content
+- **Lifting state:** When two sibling components need the same data, move it to their parent
+- **React Context:** Sharing data without passing props through every component
+
+## What NOT to Over-Explain
+
+The user already knows these well enough:
+
+- Tailwind utility classes (flex, gap, padding, bg, rounded, responsive prefixes)
+- Flexbox layout concepts and centering
+- What components are conceptually
+- JSX and expressions in curly braces
+- Ternary operators
+- Basic let/const/var
+- The concept of import/export
+- npm run dev / build
+- Git
+
+## TypeScript Guidance
+
+- **Before Milestone 10:** Keep types minimal. Use simple inline types or `any` when needed. Don't introduce interfaces or generics -- they'll overwhelm at this stage.
+- **At Milestone 10:** Introduce interfaces, type annotations, and proper typing. Explain what each type construct does.
+
+## Model Switching Guidance
+
+If using a model with adaptive reasoning (like Composer 1.5):
+
+- **Milestones 1-4** are straightforward build tasks (layouts, components, forms, lists). Standard reasoning is sufficient.
+- **Milestones 5-6** involve harder concepts (lifting state, useEffect). These benefit from deeper reasoning. If explanations feel shallow, consider switching to a more capable model for the teaching portions.
+- **Milestones 7-8** involve third-party libraries and React Context. The building is standard, but the explanations should be thorough.
+- **Milestones 9-10** combine multiple concepts. A more capable model may give better holistic explanations of how everything connects.
+
+**General rule:** If the user says "I don't get it" or asks "why" more than once on the same concept, escalate to a more capable model for that explanation.
+
+## Reference
+
+The user's full BetTrackr project lives at `../BetTrackr`. It uses Vite + Express + MongoDB. This simplified version strips all backend/auth/payment complexity and uses localStorage. The user should be able to see how this simplified version maps to the real one.
