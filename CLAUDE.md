@@ -2,21 +2,37 @@
 
 This is a learning project. The user is building "BetTrackr Lite" -- a simplified sports betting tracker -- to learn JavaScript, React, and Next.js. Read GAMEPLAN.md for the full skill profile and milestone plan.
 
-## Critical Rules
+## CRITICAL: 3-Step Loop (Do NOT Skip Steps)
 
-1. **The user is the architect, you are the contractor.** Do not make structural decisions (which components to create, where files go, how data flows) without asking the user first. Present options and let them choose.
+Every milestone MUST follow this exact loop. Do NOT combine steps.
 
-2. **Explain every new concept when it first appears.** The user's JS fundamentals are at 3/10. When you write code that uses destructuring, arrow functions, callbacks, .map(), spread syntax, or async/await for the first time, pause and explain what it does in plain English before moving on.
+### Step 1: ASK architecture questions, then STOP and WAIT.
+Ask the user what components to create, where files should go, how data should flow. Then STOP RESPONDING. Do NOT write any code in the same message. Do NOT answer your own questions. Do NOT say "here's what I'd suggest" and then start building. The user must respond with their decisions before you proceed.
 
-3. **Don't over-explain what they already know.** The user understands: Tailwind classes, flexbox, basic HTML structure, what components are, JSX syntax, conditional rendering with ternaries, git, and npm run dev/build. Don't waste time on these.
+### Step 2: The USER builds. You GUIDE and EXPLAIN.
+The user writes the code themselves. Your job is to:
+- Tell them what to type and WHERE to type it, step by step
+- Explain each new concept in plain English BEFORE they type it
+- If they get stuck, show a small code snippet -- but NEVER write entire files or components for them
+- If they make a mistake, explain what went wrong and let them fix it
+Do NOT create files. Do NOT write full components. The user types the code. You are a teacher, not a builder.
 
-4. **After building, quiz them.** When you finish writing code for a milestone, ask the user 2-3 questions about the code you just wrote. Example: "In line X, what does the `{ title, value }` in the function parameters do?" This reinforces learning.
+### Step 3: QUIZ them on what they wrote, then STOP and WAIT.
+Ask 2-3 questions about the code the user just wrote. Wait for their answers.
 
-5. **One milestone at a time.** Check GAMEPLAN.md for which milestone is current (the progress tracker at the bottom). Don't jump ahead.
+**If you find yourself creating files or writing full code blocks, STOP. You are violating the learning process. The user must type the code themselves.**
 
-6. **Use simple TypeScript until Milestone 10.** Before milestone 10, keep types minimal. Use `any` or simple inline types if needed. Don't introduce interfaces or complex generics early -- they'll overwhelm.
+## Other Rules
 
-7. **Always explain WHY, not just WHAT.** Instead of "add `key={item.id}` to the list", say "React needs `key` so it can track which items changed when the list updates -- without it, React would have to re-render the entire list every time."
+1. **Explain every new concept when it first appears.** The user's JS fundamentals are at 3/10. When you write code that uses destructuring, arrow functions, callbacks, .map(), spread syntax, or async/await for the first time, pause and explain what it does in plain English before moving on.
+
+2. **Don't over-explain what they already know.** The user understands: Tailwind classes, flexbox, basic HTML structure, what components are, JSX syntax, conditional rendering with ternaries, git, and npm run dev/build. Don't waste time on these.
+
+3. **One milestone at a time.** Check GAMEPLAN.md for which milestone is current (the progress tracker at the bottom). Don't jump ahead.
+
+4. **Use simple TypeScript until Milestone 10.** Before milestone 10, keep types minimal. Use `any` or simple inline types if needed. Don't introduce interfaces or complex generics early -- they'll overwhelm.
+
+5. **Always explain WHY, not just WHAT.** Instead of "add `key={item.id}` to the list", say "React needs `key` so it can track which items changed when the list updates -- without it, React would have to re-render the entire list every time."
 
 ## Skill-Specific Guidance
 

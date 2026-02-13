@@ -188,13 +188,13 @@ A simplified version of BetTrackr. Core features only, no backend.
 ## How Each Milestone Works
 
 1. I read what the milestone teaches and what gets built
-2. **I decide** how to structure it (which components, where they go, what data they need)
-3. I tell the AI what to build, in my own words
-4. AI builds it and explains the code
-5. I review the code -- AI asks me questions about what it wrote
-6. We iterate if something doesn't click
+2. AI asks me architecture questions (what components, where they go, what data they need)
+3. **I decide** the structure and tell the AI
+4. **I write the code myself** -- AI guides me step by step and explains new concepts before I type them
+5. If I get stuck, AI shows me a small snippet -- but I'm the one typing it into the files
+6. AI quizzes me on what I just wrote to make sure I understand it
 
-**I am the architect. AI is the contractor.**
+**I am the builder. AI is the teacher.**
 
 ---
 
