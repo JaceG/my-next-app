@@ -1,6 +1,14 @@
+'use client';
+import { useState } from 'react';
 import StatCard from '../components/StatCard';
+import BetForm from '../components/BetForm';
+import BetList from '../components/BetList';
 
 export default function Home() {
+	const [bets, setBets] = useState([]);
+	const addBet = (newBet) => {
+		setBets([...bets, newBet]);
+	};
 	return (
 		<main className='bg-zinc-50 font-sans dark:bg-black p-6'>
 			<h2 className='text-2xl font-bold mb-6'>Home</h2>
@@ -10,6 +18,8 @@ export default function Home() {
 				<StatCard title='Total P/L' value={100} />
 				<StatCard title='Balance' value={1000} />
 			</div>
+			<BetForm onAddBet={addBet} />
+			<BetList bets={bets} />
 		</main>
 	);
 }
