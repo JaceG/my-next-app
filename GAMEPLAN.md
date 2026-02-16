@@ -221,6 +221,15 @@ A simplified version of BetTrackr. Core features only, no backend.
 - **Functions are the core blocker, not syntax:** The struggle wasn't with `.filter()` or `.map()` specifically -- it was with what a function *is* at a fundamental level. Arrow functions, anonymous functions, callbacks, and nested functions all felt opaque because the base concept of "input -> process -> output" hadn't solidified. When any function-heavy code confuses them, back up to the three-part machine model (what goes IN, what the GUTS do, what comes OUT) before explaining the specific function.
 - **Needs to trace the full journey, not just see the destination:** Understanding `onDelete` required walking through every stop it passes through (page.tsx -> BetList -> BetCard) with the name at each stop. Showing just the final usage isn't enough -- trace the complete path from creation to use.
 
+###
+### Milestone 5
+- **Math is a separate blocker from code:** Explicitly said "I don't know this kind of math at all." The struggle with win rate wasn't JavaScript or React -- it was percentages. When a coding task involves math, explain the math concept in plain English first (what a percentage *is*, what division *means*) completely separate from the code syntax. Don't assume basic arithmetic operations are obvious.
+- **Creates accurate mental models from good explanations:** After the step-by-step walkthrough of `.reduce()`, summarized the accumulator as "it's like reduce has its own internal `let` variable" -- which is precise and useful. When given thorough explanations, the user compresses them into compact, correct models that stick. Invest in the explanation; it pays off.
+- **Needs to know where every piece comes from:** Asked explicitly "where did reduce, total, Number, and result come from?" Every piece of an expression needs to be labeled by its origin -- is it built into JavaScript? A name you're choosing right now? Data from another file? Don't assume the user can tell which parts are "the language" vs "their code" vs "someone else's code."
+- **Extract complex logic into named variables:** Got lost writing winRate math inline inside JSX. Moving calculations into named `const` variables above the `return` was immediately more manageable. When an expression combines multiple concepts (ternary + filter + division + multiplication), break it into named steps rather than one dense line.
+- **Will ask for the answer when too many unknowns stack:** When the winRate line required a new array method + unfamiliar math + a defensive ternary all at once, the user asked to see the answer. They have good self-awareness of when they're in over their head. When three or more unfamiliar concepts collide in one expression, show the answer first, then walk through it -- don't make them build it blind.
+- **Lifting state "through the parent" hasn't fully clicked yet:** On the quiz, said BetForm sends a message directly to StatCards. The concept that siblings never talk to each other -- everything routes through the parent via callbacks up and props down -- needs reinforcement in future milestones.
+
 ---
 
 ## Progress Tracker
