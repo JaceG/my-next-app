@@ -198,6 +198,31 @@ A simplified version of BetTrackr. Core features only, no backend.
 
 ---
 
+## Learned from Milestone Chats (for AI)
+
+*How this user learns and thinks. Accumulated from each milestone chat.*
+
+### Milestone 1
+- **Needs the "what" before the "how":** When stuck, user doesn't want the answer -- they want to know what options exist and what they do, then they'll pick. Give concepts and choices, not solutions.
+- **Thinks in structure first:** Instinct is to create all folders and files before writing any code. Organizes the skeleton, then fills it in. Guide in that order.
+
+### Milestone 2
+- **Honest about knowledge gaps:** Clearly separates "I don't care" (delegation) from "I don't know" (learning opportunity). When they say they don't know, slow down and teach.
+- **Thinks in systems:** Checks whether current decisions fit the bigger plan. Optimizes the process, not just the output.
+- **Contrast helps concepts click:** Before/after comparisons (with `props.title` vs destructured) work better than just showing the final version.
+
+### Milestone 3
+- **Good instincts, imprecise vocabulary:** Said "global state" when the concept was "lifted state in a shared parent." Described the right architecture (bets live in page.tsx, form and list are children) but reached for the wrong term. Give the correct name for things after they describe the concept in their own words.
+- **Pattern replication is strong:** After seeing one input wired with `value` + `onChange`, typed the other three correctly without questions. Teach by showing one example, then let them repeat the pattern. Don't over-explain the second, third, fourth instance.
+- **Connects new concepts to existing knowledge (even when the connection is wrong):** On the quiz, answered the prop-naming question by talking about spread syntax instead -- they reached for the most recent concept they'd learned rather than the one being asked about. When correcting, explicitly name which concept the question is about before explaining.
+
+### Milestone 4
+- **Builds physical analogies to understand abstract concepts:** When functions and data flow felt too abstract, built elaborate real-world models (toasters, shipping/factories, computer hardware) to make them tangible. Analogies work best when kept simple -- when they get too complex they start causing confusion instead of resolving it. Offer a concrete analogy early, but switch to plain-English sentence readings of the code when the analogy stretches thin.
+- **Functions are the core blocker, not syntax:** The struggle wasn't with `.filter()` or `.map()` specifically -- it was with what a function *is* at a fundamental level. Arrow functions, anonymous functions, callbacks, and nested functions all felt opaque because the base concept of "input -> process -> output" hadn't solidified. When any function-heavy code confuses them, back up to the three-part machine model (what goes IN, what the GUTS do, what comes OUT) before explaining the specific function.
+- **Needs to trace the full journey, not just see the destination:** Understanding `onDelete` required walking through every stop it passes through (page.tsx -> BetList -> BetCard) with the name at each stop. Showing just the final usage isn't enough -- trace the complete path from creation to use.
+
+---
+
 ## Progress Tracker
 
 - [ ] Milestone 1: Project Setup + Static Layout

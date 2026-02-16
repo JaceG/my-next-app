@@ -9,6 +9,10 @@ export default function Home() {
 	const addBet = (newBet) => {
 		setBets([...bets, newBet]);
 	};
+	const deleteBet = (id) => {
+		setBets(bets.filter((bet) => bet.id !== id));
+	};
+
 	return (
 		<main className='bg-zinc-50 font-sans dark:bg-black p-6'>
 			<h2 className='text-2xl font-bold mb-6'>Home</h2>
@@ -19,7 +23,7 @@ export default function Home() {
 				<StatCard title='Balance' value={1000} />
 			</div>
 			<BetForm onAddBet={addBet} />
-			<BetList bets={bets} />
+			<BetList bets={bets} onDelete={deleteBet} />
 		</main>
 	);
 }
