@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import StatCard from '../components/StatCard';
 import BetForm from '../components/BetForm';
 import BetList from '../components/BetList';
@@ -20,6 +21,17 @@ export default function Home() {
 				100;
 	const totalPL = bets.reduce((total, bet) => total + Number(bet.result), 0);
 	const balance = totalPL;
+
+	useEffect(() => {
+		const saved = localStorage.getItem('bets');
+		if (saved) {
+			setBets(JSON.parse(saved));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('bets', JSON.stringify(bets));
+	}, [bets]);
 
 	return (
 		<main className='bg-zinc-50 font-sans dark:bg-black p-6'>
