@@ -1,9 +1,9 @@
 'use client';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import StatCard from '../components/StatCard';
 import BetForm from '../components/BetForm';
 import BetList from '../components/BetList';
+import BalanceChart from '../components/BalanceChart';
 
 export default function Home() {
 	const [bets, setBets] = useState([]);
@@ -44,6 +44,7 @@ export default function Home() {
 			</div>
 			<BetForm onAddBet={addBet} />
 			<BetList bets={bets} onDelete={deleteBet} />
+			<BalanceChart bets={bets} />
 		</main>
 	);
 }
