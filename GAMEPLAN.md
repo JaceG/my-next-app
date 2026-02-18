@@ -20,20 +20,20 @@ Assessed Feb 2026. Update this as you learn.
 - Grid vs Flexbox (when to use which)
 - CSS positioning beyond `absolute` and `sticky`
 
-### Architecture -- 6/10
-**Good instincts becoming reliable.** Correctly places state, identifies where components belong. Component folder structure and Context pattern understood. Starting to answer architecture questions without guidance.
+### Architecture -- 7/10
+**Reliable judgment now.** Correctly places state, identifies where components belong, and answers architecture questions without guidance. Component folder structure, Context pattern, callback chains, and conditional component modes all understood.
 
 **Gaps:**
 - Loading states haven't been on my radar
 - Vocabulary is improving but still occasionally imprecise
 
-### React Core -- 6/10
-**Building outpacing understanding, but closing the gap.** Props, children, useState, useEffect, Context, list keys, and form wiring all working. Building is smooth; quiz understanding is catching up.
+### React Core -- 7/10
+**Building and understanding converging.** Props, children, useState, useEffect, Context, list keys, form wiring, conditional rendering with `&&`, `.map()` for array updates, and conditional component modes all working. Quiz performance now matches building ability (3/3 in M9).
 
 **Gaps:**
 - Custom hooks: heard of them, don't know what they are
 - Distinguishing Context defaults from Provider values (confuses the placeholder with the real broadcast)
-- `"use client"` fades between milestones -- needs re-explanation each time
+- Passing functions vs data as props -- gets it right when prompted but not instinctive yet
 
 ### Tooling -- 5/10
 **Growing.** Installed third-party dependencies (recharts), responds to TypeScript hints from the IDE, solid on git.
@@ -43,8 +43,8 @@ Assessed Feb 2026. Update this as you learn.
 - Jump straight to Google on errors rather than reading them
 - Dev tools beyond the Elements tab are unused
 
-### JavaScript Fundamentals -- 5/10
-**Array methods and basic patterns solid.** Destructuring, arrow functions, .map(), .filter(), .reduce(), ternaries all used successfully.
+### JavaScript Fundamentals -- 6/10
+**Solid on array methods and object handling.** Destructuring, arrow functions, .map(), .filter(), .reduce(), ternaries, object shorthand `{ id, date }`, and `||` for fallback values all used successfully. `.map()` for array replacement (find-and-swap pattern) understood.
 
 **Gaps:**
 - Async/await and fetch (wouldn't know where to start)
@@ -255,6 +255,14 @@ A simplified version of BetTrackr. Core features only, no backend.
 - **Traces Context path but confuses defaults with actual values:** When asked where `theme` and `toggleTheme` come from, pointed to the `createContext` defaults (lines 5-8) rather than the `useState` and function definition inside `ThemeProvider`. The distinction between "placeholder defaults" and "the real values being broadcast by the Provider" needs explicit labeling when teaching Context.
 - **Building continues to be strong:** Coded everything correctly, added styling improvements on their own (Tailwind classes on the toggle button, `@apply` for body dark styles). Quiz understanding is catching up -- needed re-explanation on 2 of 3 questions, but the simpler re-explanations landed on the first try.
 
+### Milestone 9
+- **Architecture instincts are solidifying:** Immediately said `page.tsx` for where editing state belongs, knew ConfirmDialog should be its own component, answered "Props" for how BetForm should know its mode, and correctly identified `.map()` for updating. Every architecture question answered correctly without guidance. This is no longer "good instincts" -- it's reliable judgment.
+- **Distinguishes functions from data when prompted, but not instinctively:** Passed `startEditing` (a function) as `editingBet` (which expects data), and `updateBet` as `onEdit` (which should have been `startEditing`). The distinction between "pass the data" and "pass the callback" is clear once pointed out but isn't automatic yet. When multiple props are functions vs data, explicitly label each: "this one is data, this one is a function."
+- **"Too much talking not enough code" is a reliable self-advocacy signal:** When the `updateBet` explanation was too abstract, said "it's way too abstract for me" unprompted. This is the same pattern as M5 ("will ask for the answer when too many unknowns stack") but now more direct and confident. When the user says this, immediately switch to showing the code with a data trace -- don't try to re-explain abstractly.
+- **Expected a popup for edit mode:** Said "I was expecting a popup but the form just changes." Mental model of "editing" was a separate modal UI, not the same form transforming in place. When introducing conditional component modes, set the expectation upfront: "the same component will change its behavior -- it won't spawn a new UI element."
+- **Quiz performance was perfect (3/3).** First clean sweep in the project. Correctly reasoned about why `editingBet.id` preserves identity, why `showConfirm` belongs in BetCard (only that component cares), and what the `&&` pattern does. Understanding is now keeping pace with building ability.
+- **Self-catches wiring errors before being told:** Noticed "I think I have a different editingBet" when the prop was wrong, and proactively added the Edit button to BetCard before being guided. Self-monitoring and initiative are both strong and growing.
+
 ---
 
 ## Progress Tracker
@@ -267,5 +275,5 @@ A simplified version of BetTrackr. Core features only, no backend.
 - [x] Milestone 6: localStorage + useEffect
 - [x] Milestone 7: The Chart
 - [x] Milestone 8: Dark Mode + Theme Toggle
-- [ ] Milestone 9: Edit + Delete Flow
+- [x] Milestone 9: Edit + Delete Flow
 - [ ] Milestone 10: Polish + TypeScript

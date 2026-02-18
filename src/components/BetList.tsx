@@ -1,6 +1,6 @@
 import BetCard from './BetCard';
 
-function BetList({ bets, onDelete }) {
+function BetList({ bets, onDelete, onEdit }) {
 	if (bets.length === 0) {
 		return (
 			<p className='text-zinc-500 dark:text-zinc-400'>
@@ -16,7 +16,12 @@ function BetList({ bets, onDelete }) {
 			</h3>
 			<ul className='space-y-2'>
 				{bets.map((bet) => (
-					<BetCard key={bet.id} {...bet} onDelete={onDelete} />
+					<BetCard
+						key={bet.id}
+						{...bet}
+						onDelete={onDelete}
+						onEdit={onEdit}
+					/>
 				))}
 			</ul>
 		</div>

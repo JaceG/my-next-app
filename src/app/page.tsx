@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import StatCard from '../components/StatCard';
 import BetForm from '../components/BetForm';
@@ -7,11 +8,25 @@ import BalanceChart from '../components/BalanceChart';
 
 export default function Home() {
 	const [bets, setBets] = useState([]);
+	const [editingBet, setEditingBet] = useState(null);
+
 	const addBet = (newBet) => {
 		setBets([...bets, newBet]);
 	};
 	const deleteBet = (id) => {
 		setBets(bets.filter((bet) => bet.id !== id));
+	};
+	const startEditing = (bet) => {
+		setEditingBet(bet);
+	};
+	const updateBet = (updatedBet) => {
+		setBets(
+			bets.map((bet) => (bet.id === updatedBet.id ? updatedBet : bet))
+		);
+		setEditingBet(null);
+	};
+	const cancelEdit = () => {
+		setEditingBet(null);
 	};
 	const winRate =
 		bets.length === 0
@@ -42,8 +57,13 @@ export default function Home() {
 				<StatCard title='Total P/L' value={totalPL} />
 				<StatCard title='Balance' value={balance} />
 			</div>
-			<BetForm onAddBet={addBet} />
-			<BetList bets={bets} onDelete={deleteBet} />
+			<BetForm
+				onAddBet={addBet}
+				editingBet={editingBet}
+				onUpdateBet={updateBet}
+				onCancelEdit={cancelEdit}
+			/>
+			<BetList bets={bets} onDelete={deleteBet} onEdit={startEditing} />
 			<BalanceChart bets={bets} />
 		</main>
 	);

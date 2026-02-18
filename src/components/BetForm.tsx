@@ -1,16 +1,35 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function BetForm({ onAddBet }) {
+function BetForm({ onAddBet, editingBet, onUpdateBet, onCancelEdit }) {
 	const [date, setDate] = useState('');
 	const [description, setDescription] = useState('');
 	const [amount, setAmount] = useState('');
 	const [result, setResult] = useState('');
 
+	useEffect(() => {
+		if (editingBet) {
+			setDate(editingBet.date || '');
+			setDescription(editingBet.description || '');
+			setAmount(editingBet.amount || '');
+			setResult(editingBet.result || '');
+		}
+	}, [editingBet]);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		onAddBet({ id: Date.now(), date, description, amount, result });
+		if (editingBet) {
+			onUpdateBet({
+				id: editingBet.id,
+				date,
+				description,
+				amount,
+				result,
+			});
+		} else {
+			onAddBet({ id: Date.now(), date, description, amount, result });
+		}
 
 		setDate('');
 		setDescription('');
@@ -24,7 +43,7 @@ function BetForm({ onAddBet }) {
 			className='space-y-4 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-800 dark:bg-zinc-900'
 			style={{ marginTop: '20px' }}>
 			<h3 className='text-lg font-bold text-zinc-900 dark:text-zinc-100'>
-				Add a Bet
+				{editingBet ? 'Edit Bet' : 'Add Bet'}
 			</h3>
 			<label className='block text-sm font-medium text-zinc-700 dark:text-zinc-300'>
 				Date
@@ -69,8 +88,16 @@ function BetForm({ onAddBet }) {
 			<button
 				type='submit'
 				className='rounded bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700'>
-				Add Bet
+				{editingBet ? 'Save Changes' : 'Add Bet'}
 			</button>
+			{editingBet && (
+				<button
+					type='button'
+					onClick={onCancelEdit}
+					className='rounded bg-zinc-400 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-500'>
+					Cancel
+				</button>
+			)}
 		</form>
 	);
 }
