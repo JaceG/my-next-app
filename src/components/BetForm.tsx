@@ -1,7 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { Bet } from '../types';
 
-function BetForm({ onAddBet, editingBet, onUpdateBet, onCancelEdit }) {
+interface BetFormProps {
+	onAddBet: (bet: Bet) => void;
+	editingBet: Bet | null;
+	onUpdateBet: (bet: Bet) => void;
+	onCancelEdit: () => void;
+}
+
+function BetForm({
+	onAddBet,
+	editingBet,
+	onUpdateBet,
+	onCancelEdit,
+}: BetFormProps) {
 	const [date, setDate] = useState('');
 	const [description, setDescription] = useState('');
 	const [amount, setAmount] = useState('');
@@ -16,7 +29,7 @@ function BetForm({ onAddBet, editingBet, onUpdateBet, onCancelEdit }) {
 		}
 	}, [editingBet]);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (editingBet) {

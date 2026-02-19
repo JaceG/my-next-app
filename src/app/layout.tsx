@@ -5,6 +5,7 @@ import '../styles/global.css';
 import { ThemeProvider } from '../context/ThemeContext';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
+import { Bet } from '../types';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',

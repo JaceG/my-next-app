@@ -35,11 +35,11 @@ Assessed Feb 2026. Update this as you learn.
 - Distinguishing Context defaults from Provider values (confuses the placeholder with the real broadcast)
 - Passing functions vs data as props -- gets it right when prompted but not instinctive yet
 
-### Tooling -- 5/10
-**Growing.** Installed third-party dependencies (recharts), responds to TypeScript hints from the IDE, solid on git.
+### Tooling -- 6/10
+**TypeScript basics acquired.** Interfaces, type annotations, generics on useState, union types, and function type syntax all used correctly. Discovered `React.FormEvent` through IDE hints independently. Installed third-party dependencies (recharts), solid on git.
 
 **Gaps:**
-- TypeScript syntax (`: string`, interfaces, `Readonly<>`) is still opaque
+- Advanced TypeScript (`Readonly<>`, `Partial<>`, utility types) still unknown
 - Jump straight to Google on errors rather than reading them
 - Dev tools beyond the Elements tab are unused
 
@@ -263,6 +263,14 @@ A simplified version of BetTrackr. Core features only, no backend.
 - **Quiz performance was perfect (3/3).** First clean sweep in the project. Correctly reasoned about why `editingBet.id` preserves identity, why `showConfirm` belongs in BetCard (only that component cares), and what the `&&` pattern does. Understanding is now keeping pace with building ability.
 - **Self-catches wiring errors before being told:** Noticed "I think I have a different editingBet" when the prop was wrong, and proactively added the Edit button to BetCard before being guided. Self-monitoring and initiative are both strong and growing.
 
+### Milestone 10
+- **Runs ahead when the pattern is clear:** After being shown the interface + attach pattern on BetCard, independently typed BetFormProps (with `Bet | null` union type), `React.FormEvent<HTMLFormElement>`, started typing page.tsx, and imported Bet in multiple files -- all before being asked. When a pattern clicks, get out of the way and let them run.
+- **Discovers type syntax through the IDE:** Found `React.FormEvent<HTMLFormElement>` independently, likely through autocomplete or IDE hints. The tooling skill (responding to IDE suggestions) is actively growing. Encourage leaning on IDE hints for type discovery rather than memorizing syntax.
+- **Union types clicked immediately without explicit teaching:** Wrote `Bet | null` on their own for `editingBet`. The concept of "this value can be one thing or another" was intuitive -- probably because conditional rendering (`editingBet ? ... : ...`) already built the mental model that a value can be "something or nothing."
+- **Asks targeted "do I need this?" questions:** Asked "Do I need to import Bet for ConfirmDialog?" -- showing they're thinking about which types belong where rather than blindly importing everywhere. This is architectural thinking applied to types.
+- **Quiz miss was a mode label confusion, not a type concept gap:** On Q1, correctly connected `null` to the form's mode but said "delete" instead of "add." The TypeScript concept (union types represent real possibilities) was understood; the slip was mixing up which mode maps to which value. Not a TypeScript gap -- a recall error on business logic.
+- **"This compounded question is too much" is clear self-advocacy:** When asked about loading/empty/error states all at once, immediately said it was too much. Breaking polish into one-at-a-time decisions worked. Don't batch multiple design decisions into one question.
+
 ---
 
 ## Progress Tracker
@@ -276,4 +284,4 @@ A simplified version of BetTrackr. Core features only, no backend.
 - [x] Milestone 7: The Chart
 - [x] Milestone 8: Dark Mode + Theme Toggle
 - [x] Milestone 9: Edit + Delete Flow
-- [ ] Milestone 10: Polish + TypeScript
+- [x] Milestone 10: Polish + TypeScript

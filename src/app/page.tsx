@@ -5,21 +5,22 @@ import StatCard from '../components/StatCard';
 import BetForm from '../components/BetForm';
 import BetList from '../components/BetList';
 import BalanceChart from '../components/BalanceChart';
+import { Bet } from '../types';
 
 export default function Home() {
-	const [bets, setBets] = useState([]);
-	const [editingBet, setEditingBet] = useState(null);
+	const [bets, setBets] = useState<Bet[]>([]);
+	const [editingBet, setEditingBet] = useState<Bet | null>(null);
 
-	const addBet = (newBet) => {
+	const addBet = (newBet: Bet) => {
 		setBets([...bets, newBet]);
 	};
-	const deleteBet = (id) => {
+	const deleteBet = (id: number) => {
 		setBets(bets.filter((bet) => bet.id !== id));
 	};
-	const startEditing = (bet) => {
+	const startEditing = (bet: Bet) => {
 		setEditingBet(bet);
 	};
-	const updateBet = (updatedBet) => {
+	const updateBet = (updatedBet: Bet) => {
 		setBets(
 			bets.map((bet) => (bet.id === updatedBet.id ? updatedBet : bet))
 		);

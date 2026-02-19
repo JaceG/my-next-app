@@ -8,8 +8,20 @@ import {
 	Tooltip,
 	ResponsiveContainer,
 } from 'recharts';
+import { Bet } from '../types';
 
-export default function BalanceChart({ bets }) {
+interface BalanceChartProps {
+	bets: Bet[];
+}
+
+export default function BalanceChart({ bets }: BalanceChartProps) {
+	if (bets.length === 0) {
+		return (
+			<p className='text-zinc-500 dark:text-zinc-400'>
+				No balance data yet. Add some bets above!
+			</p>
+		);
+	}
 	let runningBalance = 0;
 	const chartData = bets.map((bet) => {
 		runningBalance += Number(bet.result);

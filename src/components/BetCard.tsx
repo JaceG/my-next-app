@@ -2,8 +2,27 @@
 
 import { useState } from 'react';
 import ConfirmDialog from './ConfirmDialog';
+import { Bet } from '../types';
 
-function BetCard({ id, date, description, amount, result, onDelete, onEdit }) {
+interface BetCardProps {
+	id: number;
+	date: string;
+	description: string;
+	amount: string;
+	result: string;
+	onDelete: (id: number) => void;
+	onEdit: (bet: Bet) => void;
+}
+
+function BetCard({
+	id,
+	date,
+	description,
+	amount,
+	result,
+	onDelete,
+	onEdit,
+}: BetCardProps) {
 	const [showConfirm, setShowConfirm] = useState(false);
 
 	return (

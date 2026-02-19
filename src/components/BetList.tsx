@@ -1,6 +1,12 @@
 import BetCard from './BetCard';
+import { Bet } from '../types';
 
-function BetList({ bets, onDelete, onEdit }) {
+interface BetListProps {
+	bets: Bet[];
+	onDelete: (id: number) => void;
+	onEdit: (bet: Bet) => void;
+}
+function BetList({ bets, onDelete, onEdit }: BetListProps) {
 	if (bets.length === 0) {
 		return (
 			<p className='text-zinc-500 dark:text-zinc-400'>

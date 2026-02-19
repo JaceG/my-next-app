@@ -116,6 +116,12 @@ These are patterns discovered across 9 milestones. Follow them.
 - Object shorthand `{ id, date }` when property and variable names match
 - `|| ''` fallback pattern for defensive defaults
 - Lifting state (mechanically solid, conceptually improved)
+- TypeScript interfaces (defining shape, attaching to props)
+- Type annotations on function parameters (`: string`, `: number`, `: Bet`)
+- Union types (`Bet | null` for values that can be two things)
+- Generics on useState (`useState<Bet[]>`, `useState<Bet | null>`)
+- Function type syntax (`(id: number) => void`)
+- Early return pattern for empty states
 
 ## Project Structure Target
 

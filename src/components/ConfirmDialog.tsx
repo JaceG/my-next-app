@@ -1,4 +1,10 @@
-function ConfirmDialog({ message, onConfirm, onCancel }) {
+interface ConfirmDialogProps {
+	message: string;
+	onConfirm: () => void;
+	onCancel: () => void;
+}
+
+function ConfirmDialog({ message, onConfirm, onCancel }: ConfirmDialogProps) {
 	return (
 		<div className='mt-2 rounded border border-red-300 bg-red-50 p-3 dark:border-red-800 dark:bg-red-950'>
 			<p className='text-sm text-zinc-900 dark:text-zinc-100'>
